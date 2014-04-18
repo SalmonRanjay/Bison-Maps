@@ -14,6 +14,7 @@ public class BisonMaps {
 
     public static void main(String[] args) {
 
+	//test
         // read in the graph from a file
         In graphin = new In(args[0]);
         EuclideanGraph G = new EuclideanGraph(graphin);
