@@ -59,7 +59,7 @@ public class BisonMaps {
 					break;
 				case 5:
 					System.out.println("Succesful 5");
-					//displayAllDepartmentLocations();
+					displayAllDepartmentLocations(instance);
 					break;
 				case 6:
 					break;
@@ -141,6 +141,29 @@ public class BisonMaps {
         	
         }while (cont == -1);
         
+	}
+	
+	public static void displayAllDepartmentLocations(DataConnector instance){
+		ArrayList<String> departments = instance.getDepartName();
+		System.out.println("Department"+"\t"+"\t"+"\t"+"Building");
+		
+		System.out.println("Computer Science: "+"\t"+"\t"+departments.get(22));
+		System.out.println("Chemistry: "+"\t"+"\t"+"\t"+departments.get(23));
+		System.out.println("College of Dentistry: "+"\t"+"\t"+departments.get(1));
+		System.out.println("School of Medicine: "+"\t"+"\t"+departments.get(2));
+		System.out.println("School of Architecture: "+"\t"+departments.get(27));
+		System.out.println("Busines School: "+"\t"+"\t"+departments.get(37));
+		System.out.println("School of Education: "+"\t"+"\t"+departments.get(43));
+		System.out.println("TV Station: "+"\t"+"\t"+"\t"+departments.get(12));
+		System.out.println("Physics : "+"\t"+"\t"+"\t"+departments.get(0));
+		System.out.println("School of Communication: "+"\t"+departments.get(9));
+		System.out.println("School of Nursing: "+"\t"+"\t"+departments.get(4));
+		System.out.println("Health Sciences: "+"\t"+"\t"+departments.get(11));
+		System.out.println("Math Department: "+"\t"+"\t"+departments.get(4));
+		
+		
+		
+		
 	}
 
     public static void main(String[] args) {
