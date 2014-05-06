@@ -3,6 +3,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /*************************************************************************
+ *  Name:		  Ranjay Salmon
+ *  CourseNumber: SYCS 3601 -> Large Scale Programming
+ *  Title:        Bison Maps Project
+ *  Instructor:   DR.Legan Burge
  *  Compilation:  javac BisonMaps.java
  *  Execution:    java BisonMaps mapfile < input.txt
  *  Dependencies: EuclideanGraph.java Dijkstra.java In.java StdIn.java
@@ -75,16 +79,16 @@ public class BisonMaps {
 	}
 	public static void getDirections(DataConnector instance){
 		Scanner in = new Scanner(System.in);
-		ArrayList<Integer> SID = instance.getSID();
-		ArrayList<Integer> DID = instance.getDID();
+		ArrayList<Integer> SID = instance.getSID(); // SID from Graph table
+		ArrayList<Integer> DID = instance.getDID(); // DID from graph table
 		
-		ArrayList<Integer> NLSID = instance.getNLSID();
-		ArrayList<Integer> NLX = instance.getNLX();
-		ArrayList<Integer> NLY = instance.getNLY();
-		ArrayList<Integer> DP_SID = instance.getDP_SID();
-		ArrayList<String> DepartmentName = instance.getDepartName();
-		ArrayList<String> ndDescription = instance.getDescription();
-		ArrayList<Integer> ndSID = instance.getND_SID();
+		ArrayList<Integer> NLSID = instance.getNLSID(); // SID from NodeLocation 
+		ArrayList<Integer> NLX = instance.getNLX();     // X value from NodeLocation
+		ArrayList<Integer> NLY = instance.getNLY();     //Y value from NodeLocation
+		ArrayList<Integer> DP_SID = instance.getDP_SID(); // SID from Department table
+		ArrayList<String> DepartmentName = instance.getDepartName();// Department name from Department Table
+		ArrayList<String> ndDescription = instance.getDescription(); // Stores all the Department names from the Node Description table
+		ArrayList<Integer> ndSID = instance.getND_SID();            // Stores the SID from the Node Description table
 		
 		
 		

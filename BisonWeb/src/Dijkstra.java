@@ -2,6 +2,13 @@ import java.util.ArrayList;
 
 /*************************************************************************
  *  Dijkstra's algorithm.
+ *  Name:		  Ranjay Salmon
+ *  CourseNumber: SYCS 3601 -> Large Scale Programming
+ *  Title:        Bison Maps Project
+ *  Instructor:   DR.Legan Burge
+ *  Compilation:  javac Dijkstra.java
+ *  Execution:    java Dijkstra 
+ *  Dependencies: EuclideanGraph.java
  *
  *************************************************************************/
 
@@ -36,6 +43,7 @@ public class Dijkstra {
         System.out.println(s);
     }
     
+    // Overloaded showPatth() function to allow the print out of the Names of each Node
     public void showPath(int d, int s,ArrayList<Integer> dpid,ArrayList<String> dpname) {
         dijkstra(s, d);
         if (pred[d] == -1) {

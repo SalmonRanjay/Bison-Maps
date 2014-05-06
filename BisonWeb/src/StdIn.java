@@ -1,4 +1,8 @@
 /*************************************************************************
+ *  Name:		  Ranjay Salmon
+ *  CourseNumber: SYCS 3601 -> Large Scale Programming
+ *  Title:        Bison Maps Project
+ *  Instructor:   DR.Legan Burge
  *  Compilation:  javac StdIn.java
  *  Execution:    java StdIn
  *  

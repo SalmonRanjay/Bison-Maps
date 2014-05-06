@@ -1,4 +1,9 @@
 /*************************************************************************
+ *  Name:		  Ranjay Salmon
+ *  CourseNumber: SYCS 3601 -> Large Scale Programming
+ *  Title:        Bison Maps Project
+ *  Instructor:   DR.Legan Burge
+ *  
  *  Compilation:  javac Point.java
  *  
  *  Point in the plane.

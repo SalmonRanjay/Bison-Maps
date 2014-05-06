@@ -1,6 +1,10 @@
 /*********************************************************************
+ *  Name:		  Ranjay Salmon
+ *  CourseNumber: SYCS 3601 -> Large Scale Programming
+ *  Title:        Bison Maps Project
+ *  Instructor:   DR.Legan Burge
  *  Indirect priority queue.
- *
+ *  compilation:  IndexPQ.java
  *  The priority queue maintains its own copy of the priorities,
  *  unlike the one in Algorithms in Java.
  *

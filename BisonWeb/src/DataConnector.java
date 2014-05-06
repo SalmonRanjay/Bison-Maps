@@ -3,20 +3,42 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.Scanner;
 
-
+/*************************************************************************
+ *  Dijkstra's algorithm.
+ *  Name:		  Ranjay Salmon
+ *  CourseNumber: SYCS 3601 -> Large Scale Programming
+ *  Title:        Bison Maps Project
+ *  Instructor:   DR.Legan Burge
+ *  Compilation:  javac DataConnector.java
+ *  Execution:    java DataConnector
+ *  Dependencies: EuclideanGraph.java
+ *  Test Case:    Main Function at the end of class
+ *  
+ *  this class does the job of connecting to the database and 
+ *  allowing the user to query the database
+ *  and stores its results into arraylist so the user does not have to constantly querry 
+ *  the DB 
+ *  
+ *  Test function main established at the end to test the connection
+ *
+ *************************************************************************/
 public class DataConnector {
 	
 	private static DataConnector firstInstance = null;
 	
-	private Connection con;
-	private Statement st;
-	private ResultSet rs;
-	private ArrayList<Integer> NLSID = new ArrayList<Integer>();
+	private Connection con;// Object which does the connection to to database
+	private Statement st; // Object used to execute queries
+	private ResultSet rs; // object that holds the restults of each query 
+	
+	/**
+	 * Arraylist used to store data received from th database
+	 */
+	private ArrayList<Integer> NLSID = new ArrayList<Integer>(); // Array list storing SID from Node Layer table
 	private ArrayList<Integer> NLX = new ArrayList<Integer>();
 	private ArrayList<Integer> NLY = new ArrayList<Integer>();
 	private ArrayList<Integer> GSID = new ArrayList<Integer>();
 	private ArrayList<Integer> GDID = new ArrayList<Integer>();
-	private ArrayList<String> DepartmentName = new ArrayList<String>();
+	private ArrayList<String> DepartmentName = new ArrayList<String>(); // Array list storing Department Name from departmentName table
 	private ArrayList<Integer> DPNSID = new ArrayList<Integer>();
 	private ArrayList<String>DpName = new ArrayList<String>();
 	private ArrayList<Integer> ATM = new ArrayList<Integer>();
@@ -33,9 +55,14 @@ public class DataConnector {
 	//private Properties props; 
 	
 	
-	
+	/***
+	 * Singleton class used  to make connection to database 
+	 */
 	private DataConnector(){}
-	
+	/***
+	 * getinstance method to ensure that only one object of the class is ever instantiated
+	 * @return
+	 */
 	public static DataConnector getInstance(){
 		
 		if(firstInstance == null){
@@ -89,13 +116,7 @@ public class DataConnector {
 		}catch(Exception ex){
 			System.out.println("Exception in get Function: "+ex);
 		}
-		/*
-		try {
-			firstInstance.con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} */
+		
 	}
 	
 	public void getNodeLocationData(){
@@ -106,8 +127,7 @@ public class DataConnector {
 			System.out.println("REcords from NodeLocation: ");
 			
 			while (firstInstance.rs.next()){
-				//String SID = firstInstance.rs.getString("SID"); // name of column in database goes insside getString() method
-				//String DID = firstInstance.rs.getString("DID");
+		
 				
 				int NSID = Integer.parseInt(firstInstance.rs.getString("SID"));
 				int X = Integer.parseInt(firstInstance.rs.getString("X"));
@@ -123,12 +143,7 @@ public class DataConnector {
 		}catch(Exception ex){
 			System.out.println("Exception in get Function: "+ex);
 		}
-		/*try {
-			firstInstance.con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
+		
 	}
 	
 	public void displayAllBuildingNames(){
@@ -241,6 +256,10 @@ public class DataConnector {
 			ComputerLab.get(i)+" "+WiFi.get(i)+" "+Security.get(i)+" "+BusStop.get(i));
 		}
 	}
+	/**
+	 * getters that return the value stored in each ArrayList
+	 * @return
+	 */
 
 	public ArrayList<Integer> getSID(){
 		return firstInstance.GSID;
@@ -342,12 +361,6 @@ public class DataConnector {
 	}
 	
 	public void getDirections(){
-		/*ArrayList<Integer> SID = GSID;
-		ArrayList<Integer> DID = GDID;
-		
-		ArrayList<Integer> nlSID = NLSID;
-		ArrayList<Integer> NLX = newInstance.getNLX();
-		ArrayList<Integer> NLY = newInstance.getNLY(); */
 		
 		EuclideanGraph G = new EuclideanGraph(GSID,GDID,NLSID,NLX,NLY);
         System.err.println("Done reading the graph " + GSID.size());
@@ -363,7 +376,10 @@ public class DataConnector {
         }
 	}
 	
-	
+	/***
+	 * Main Function used to test to ensure the connection was succesful and values were retrieved correctly
+	 * @param args
+	 */
 	public static void main(String[] args){
 		DataConnector newInstance = DataConnector.getInstance();
 		newInstance.getGraphData();
